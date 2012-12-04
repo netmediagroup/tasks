@@ -1,0 +1,66 @@
+<head>
+	<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span8 offset2">
+			<div class="navbar">
+  			<div class="navbar-inner">
+					<ul class="nav">
+	  				<li><a class="brand" href="#">Net Media Group Tasks</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</head>
+
+<body>
+  {{> tasks}}
+  {{> completed}}
+</body>
+
+<template name="completed">
+	<div class="container-fluid">
+	<div class="row-fluid">
+	<div class="span8 offset2 well well-large">
+	<table class="table-striped" id="tasks">
+		<tr>
+  		<th>Completed Tasks</th>
+  	</tr>
+  	{{#each completes}}
+  	<tr>
+  		<td><span class="done">{{name}}</span></td>
+  	</tr>
+  	{{/each}}
+  </table>
+</div>
+</div>
+</div>
+</template>
+
+<template name="tasks">
+<div class="container-fluid">
+	<div class="row-fluid">
+	<div class="span8 offset2 well well-large">
+  	<h2>Tasks That Need To Be Completed</h2>
+  		<table class="table-striped" id="tasks">
+  			<tr>
+  				<th>Tasks</th>
+  			</tr>
+  			<form id="completed_task">
+  				{{#each tasks}}
+  			<tr>
+  			<td><input type="checkbox" name="completed_task" class="completed_task" value="{{name}}"></input></td><td><h4>{{name}}</h4></td>
+  				{{/each}}
+  			</form>
+			</tr>
+		</table>
+
+	<form id="new_task">
+  	<input type="text" name="name" id="new_task_name">
+  	<button class="btn btn-primary" type="button">Add Task</button>
+	</form>
+</div>
+</div>
+</div>
+</template>
